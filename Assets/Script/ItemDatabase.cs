@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using LitJson;
-using System.Linq;
 
 public class ItemDatabase : MonoBehaviour
 {
-    private List<Items> database = new List<Items>();
+    public ItemList itemList;
     private JsonData itemData;
 
     private void Start() 
@@ -19,15 +18,15 @@ public class ItemDatabase : MonoBehaviour
         ConstructDatabaseFromJson();
     }
 
-    public Items GetItemById(string id)
-    {
-        return database.Where(x => x.Id == id).FirstOrDefault();
-    }
-
     private void ConstructDatabaseFromJson()
     {
-        database = JsonMapper.ToObject<List<Items>>(
+        itemList.database = JsonMapper.ToObject<List<Item>>(
             File.ReadAllText(Application.dataPath + "/StreamingAssets/ItemDatabase.json")
         );
+        foreach (Item item in itemList.database)
+        {
+            if (item.Icon == null) 
+                item.UpdateIcon();
+        }
     }
 }
