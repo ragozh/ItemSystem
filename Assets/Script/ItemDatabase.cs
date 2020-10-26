@@ -10,13 +10,7 @@ public class ItemDatabase : MonoBehaviour
     public ItemList itemList;
     private JsonData itemData;
 
-    private void Start() 
-    {
-        // itemData = JsonMapper.ToObject(
-        //     File.ReadAllText(Application.dataPath + "/StreamingAssets/ItemDatabase.json")
-        // );
-        ConstructDatabaseFromJson();
-    }
+    private void Start() => ConstructDatabaseFromJson();
 
     private void ConstructDatabaseFromJson()
     {

@@ -7,9 +7,7 @@ public class ItemList : ScriptableObject
 {
     public List<Item> database;
     
-    public void AddItem(Item item){
-        database.Add(item);
-    }
+    public void AddItem(Item item) => database.Add(item);    
     
     public void RemoveItemById(string id)
     {
@@ -20,8 +18,9 @@ public class ItemList : ScriptableObject
         }
     }
 
-    public Item GetItemById(string id)
-    {
-        return database.Where(x => x.Id == id).FirstOrDefault();
-    }
+    public Item GetItemById(string id) => database.Where(x => x.Id == id).FirstOrDefault();
+
+    public bool Contains(Item item) => database.Contains(item);
+
+    public bool ContainsById(string itemId) => database.Any(item => item.Id == itemId);
 }

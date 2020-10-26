@@ -6,6 +6,7 @@
 		"Type" : 0,
 		"Rarity" : 1,
 		"Description" : "A sword made from steel",
+		"Stackable" : false,
 		"Stats" :
 		{
 			"Damage-min" : 5.0,
@@ -31,6 +32,7 @@
 		"Type" : 0,
 		"Rarity" : 1,
 		"Description" : "A common sword used by every game",
+		"Stackable" : false,
 		"Stats" :
 		{
 			"Damage-min" : 3,
@@ -46,6 +48,7 @@
 		"Type" : 1,
 		"Rarity" : 0,
 		"Description" : "A common bow made by wood",
+		"Stackable" : false,
 		"Stats" : 
 		{
 			"Damage-min" : 1,
@@ -61,6 +64,7 @@
 		"Type" : 0,
 		"Rarity" : 1,
 		"Description" : "A strange spear, somehow it is quick",
+		"Stackable" : false,
 		"Stats" : 
 		{
 			"Damage-min" : 10,
@@ -76,6 +80,7 @@
 		"Type" : 0,
 		"Rarity" : 2,
 		"Description" : "An extremly heavy axe",
+		"Stackable" : false,
 		"Stats" : 
 		{
 			"Damage-min" : 15,
@@ -100,6 +105,7 @@
 		"Type" : 0,
 		"Rarity" : 4,
 		"Description" : "A sword made by crazy witch doctors",
+		"Stackable" : true,
 		"Stats" : {			
 			"Damage-min" : 50,
 			"Damage-max" : 70,

@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,24 +28,44 @@ public class Inventory : MonoBehaviour
         }
         AddItem("c973ee37-0c41-4728-930b-f1e391f8e01a");
         AddItem("1640aa26-9aa3-4497-9493-edfbac028152");
+        AddItem("1640aa26-9aa3-4497-9493-edfbac028152");
+        AddItem("1640aa26-9aa3-4497-9493-edfbac028152");
     }
 
-    public void AddItem(string itemId)
+    public void AddItem(string itemId, int itemAmount = 1)
     {
         Item itemToAdd = itemList.GetItemById(itemId);
         if (itemToAdd == null) return;
-        for (int i = 0; i < items.Count; i++)
+        if (itemToAdd.Stackable && IsInInventory(itemToAdd))
         {
-            if (items[i].Id == "-1")
+            for (int i = 0; i < items.Count; i++)
             {
-                items[i] = itemToAdd;
-                GameObject itemObj = Instantiate(inventoryItem);
-                itemObj.transform.SetParent(slots[i].transform);
-                itemObj.transform.position = Vector2.zero; // center relative
-                itemObj.GetComponent<Image>().sprite = itemToAdd.Icon;
-                itemObj.name = itemToAdd.Name;
-                break;
+                if (items[i].Id == itemId)
+                {
+                    ItemController controller = slots[i].transform.GetChild(0).GetComponent<ItemController>();
+                    controller.amount += itemAmount;
+                    controller.transform.GetChild(0).GetComponent<Text>().text = controller.amount.ToString();
+                }
+            }
+        } 
+        else
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id == "-1")
+                {
+                    items[i] = itemToAdd;
+                    GameObject itemObj = Instantiate(inventoryItem);
+                    itemObj.transform.SetParent(slots[i].transform);
+                    itemObj.transform.position = Vector2.zero; // center relative
+                    itemObj.GetComponent<Image>().sprite = itemToAdd.Icon;
+                    itemObj.name = itemToAdd.Name;
+                    break;
+                }
             }
         }
+        
     }
+
+    private bool IsInInventory(Item item) => items.Contains(item);
 }

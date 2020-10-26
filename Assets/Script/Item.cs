@@ -11,6 +11,7 @@ public class Item
     public int Rarity { get; set; }
     public string Description { get; set; }
     public Sprite Icon { get; set; }
+    public bool Stackable { get; set; }
     public Dictionary<string, float> Stats = new Dictionary<string, float>();
     public List<ItemModifiers> Modifier = new List<ItemModifiers>();
     public Item()
@@ -18,7 +19,7 @@ public class Item
         this.Id = "-1";
     }
     public Item(string id, string name, string slug, int type, int rarity, string description, //Sprite icon, 
-                Dictionary<string, float> stats, List<ItemModifiers> modifier)
+                bool stackable, Dictionary<string, float> stats, List<ItemModifiers> modifier)
     {
         this.Id = id;
         this.Name = name;
@@ -26,6 +27,7 @@ public class Item
         this.Type = type;
         this.Rarity = rarity;
         this.Description = description;
+        this.Stackable = stackable;
         this.Stats = stats;
         this.Modifier = modifier;
     }
@@ -37,7 +39,7 @@ public class Item
         this.Type = item.Type;
         this.Rarity = item.Rarity;
         this.Description = item.Description;
-        //this.Icon = item.Icon;
+        this.Stackable = item.Stackable;
         this.Stats = item.Stats;
         this.Modifier = item.Modifier;
     }
