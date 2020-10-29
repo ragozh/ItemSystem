@@ -277,7 +277,8 @@ MonoBehaviour:
     type: 3}
   inventoryItem: {fileID: 1799832939314419572, guid: 119768db1660c9b449fd3b15eb7fdc62,
     type: 3}
-  slots: []
+  inventoryItems: {fileID: 11400000, guid: fba34adbe94af724782e8d495788ed5a, type: 2}
+  inventorySlots: {fileID: 11400000, guid: 12df441d5abc6174cbf42a2eb82a3a0f, type: 2}
 --- !u!850595691 &925733955
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -455,10 +456,10 @@ RectTransform:
   m_Father: {fileID: 2103727094}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -56.5, y: -7.4000244}
-  m_SizeDelta: {x: -509.57642, y: -35}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 213.6, y: -201.7}
+  m_SizeDelta: {x: 305.67566, y: 383.42825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013019614
 MonoBehaviour:

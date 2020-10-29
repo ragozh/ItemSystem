@@ -19,8 +19,9 @@ public class ItemList : ScriptableObject
     }
 
     public Item GetItemById(string id) => database.Where(x => x.Id == id).FirstOrDefault();
-
     public bool Contains(Item item) => database.Contains(item);
-
     public bool ContainsById(string itemId) => database.Any(item => item.Id == itemId);
+    public int Size() => database.Count;
+    public Item GetByIndex(int index) => database[index];
+    public void SetByIndex(int index, Item item) => database[index] = item;
 }
